@@ -1,0 +1,12 @@
+<div class="main-container">
+
+    <div class="logo">
+        <div>
+            <h1>Recipes</h1>
+            <h1>Manager.</h1>
+        </div>
+    </div>
+    <div [@fadeAnimation]="prepareRoute(outlet)" class="child-container">
+        <router-outlet #outlet="outlet"></router-outlet>
+      </div> 
+</div>

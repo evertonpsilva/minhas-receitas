@@ -1,0 +1,27 @@
+<div class="sign-in__container">
+    <div>
+        <h2 class="sign-in__container-title">Log In</h2>
+        <form class="form" [formGroup]="signInForm">
+            <mat-form-field [color]="'primary'" appearance="outline">
+                <mat-label>e-mail</mat-label>
+                <input formControlName="email" matInput placeholder="email@example.com" color="primary" autocomplete="off">
+                <mat-icon matSuffix color="primary">mail_outline</mat-icon>
+                <mat-error *ngIf="email.invalid"> {{getErrorEmail()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>password</mat-label>
+                <input formControlName="password" matInput placeholder="***********" color="primary" autocomplete="off">
+                <mat-icon matSuffix color="primary">lock_outline</mat-icon>
+                <mat-error *ngIf="password.invalid"> {{getErrorPassword()}}</mat-error>
+            </mat-form-field>
+            <div class="form-actions">
+                <a>Forgot Password? </a>
+                <button mat-flat-button color="primary" (click)="login()">Log in!</button>
+            </div>
+        </form>
+    </div>
+    <div class="sign-up" [routerLink]="['register']">
+        <h3>Don't have an account? <strong>Sign up</strong></h3>
+    </div>
+</div>
+    

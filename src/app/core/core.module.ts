@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptor } from './interceptors/request.interceptor';
 import { UserService } from './user/user.service';
+import { APIInterceptor } from './interceptors/api-prefix.interceptor';
 
 @NgModule({
     imports: [
@@ -16,6 +17,11 @@ import { UserService } from './user/user.service';
             provide: HTTP_INTERCEPTORS,
             useClass: RequestInterceptor,
             multi: true
+        },
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: APIInterceptor,
+          multi: true,
         },
         UserService,
     ]

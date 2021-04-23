@@ -1,0 +1,38 @@
+<div class="sign-up__container">
+    <div>
+        <h2 class="sign-up__container-title">Register</h2>
+        <form class="form" >
+            <mat-form-field [color]="'primary'" appearance="outline">
+                <mat-label>e-mail</mat-label>
+                <input matInput placeholder="email@example.com" color="primary" autocomplete="off">
+                <mat-icon matSuffix color="primary">mail_outline</mat-icon>
+            </mat-form-field>
+            <div class="names">
+                <mat-form-field [color]="'primary'" appearance="outline">
+                    <mat-label>first name</mat-label>
+                    <input matInput placeholder="John" color="primary" autocomplete="off">
+                </mat-form-field>
+                <mat-form-field [color]="'primary'" appearance="outline">
+                    <mat-label>last name</mat-label>
+                    <input matInput placeholder="Doe" color="primary" autocomplete="off">
+                </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline">
+                <mat-label>password</mat-label>
+                <input matInput placeholder="***********" color="primary" autocomplete="off">
+                <mat-icon matSuffix color="primary">lock_outline</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>confirm password</mat-label>
+                <input matInput placeholder="***********" color="primary" autocomplete="off">
+                <mat-icon matSuffix color="primary">lock_outline</mat-icon>
+            </mat-form-field>
+            <div class="form-actions">
+                <button mat-flat-button color="primary">Create account!</button>
+            </div>
+        </form>
+    </div>
+    <div class="sign-up" [routerLink]="['']">
+        <h3>Already have an account? <strong>Sign In</strong></h3>
+    </div>
+</div>

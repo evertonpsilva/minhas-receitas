@@ -5,7 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { APIInterceptor } from './core/interceptors/api-prefix.interceptor';
+import { SignInSignUpModule } from './signin-signup/signin-signup.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,15 +15,11 @@ import { APIInterceptor } from './core/interceptors/api-prefix.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    SignInSignUpModule,
+    BrowserAnimationsModule,
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: APIInterceptor,
-      multi: true,
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
