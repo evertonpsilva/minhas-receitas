@@ -10,8 +10,8 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>password</mat-label>
-                <input formControlName="password" matInput placeholder="***********" color="primary" autocomplete="off">
-                <mat-icon matSuffix color="primary">lock_outline</mat-icon>
+                <input type="{{visiblePassword ? 'text' : 'password'}}" formControlName="password" matInput placeholder="***********" color="primary" autocomplete="off">
+                <mat-icon matSuffix color="primary" (click)="toggleVisibilityPassword()">{{visiblePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                 <mat-error *ngIf="password.invalid"> {{getErrorPassword()}}</mat-error>
             </mat-form-field>
             <div class="form-actions">

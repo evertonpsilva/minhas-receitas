@@ -5,6 +5,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptor } from './interceptors/request.interceptor';
 import { UserService } from './user/user.service';
 import { APIInterceptor } from './interceptors/api-prefix.interceptor';
+import { IsSignedInguard } from './auth/is-signed-in.guard';
+import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 
 @NgModule({
     imports: [
@@ -23,7 +25,13 @@ import { APIInterceptor } from './interceptors/api-prefix.interceptor';
           useClass: APIInterceptor,
           multi: true,
         },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpErrorInterceptor,
+            multi: true,
+        },
         UserService,
+        IsSignedInguard
     ]
 })
 export class CoreModule { }

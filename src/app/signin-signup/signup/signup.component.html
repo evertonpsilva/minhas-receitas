@@ -1,34 +1,34 @@
 <div class="sign-up__container">
     <div>
         <h2 class="sign-up__container-title">Register</h2>
-        <form class="form" >
+        <form class="form" [formGroup]="signUpForm">
             <mat-form-field [color]="'primary'" appearance="outline">
                 <mat-label>e-mail</mat-label>
-                <input matInput placeholder="email@example.com" color="primary" autocomplete="off">
+                <input formControlName="email" type="email" matInput placeholder="email@example.com" color="primary">
                 <mat-icon matSuffix color="primary">mail_outline</mat-icon>
             </mat-form-field>
             <div class="names">
                 <mat-form-field [color]="'primary'" appearance="outline">
                     <mat-label>first name</mat-label>
-                    <input matInput placeholder="John" color="primary" autocomplete="off">
+                    <input formControlName="firstName" matInput placeholder="John" color="primary">
                 </mat-form-field>
                 <mat-form-field [color]="'primary'" appearance="outline">
                     <mat-label>last name</mat-label>
-                    <input matInput placeholder="Doe" color="primary" autocomplete="off">
+                    <input formControlName="lastName" matInput placeholder="Doe" color="primary">
                 </mat-form-field>
             </div>
             <mat-form-field appearance="outline">
                 <mat-label>password</mat-label>
-                <input matInput placeholder="***********" color="primary" autocomplete="off">
-                <mat-icon matSuffix color="primary">lock_outline</mat-icon>
+                <input formControlName="password" type="{{visiblePassword ? 'text' : 'password'}}" matInput placeholder="***********" color="primary">
+                <mat-icon matSuffix color="primary" (click)="toggleVisibilityPassword()">{{visiblePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>confirm password</mat-label>
-                <input matInput placeholder="***********" color="primary" autocomplete="off">
-                <mat-icon matSuffix color="primary">lock_outline</mat-icon>
+                <input formControlName="confirmPassword" type="{{visiblePassword ? 'text' : 'password'}}" matInput placeholder="***********" color="primary">
+                <mat-icon matSuffix color="primary" (click)="toggleVisibilityPassword()">{{visiblePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
             </mat-form-field>
             <div class="form-actions">
-                <button mat-flat-button color="primary">Create account!</button>
+                <button mat-flat-button color="primary" (click)="signUp()" [disabled]="signUpForm.invalid">Create account!</button>
             </div>
         </form>
     </div>

@@ -1,0 +1,16 @@
+:host ::ng-deep{
+    width: 45vw;
+    display: block;
+    .mat-dialog-content{
+        text-align: center;
+        h2{
+            font-weight: 600;
+            margin: 0;
+        }
+        .mat-icon{
+            font-size: 120px;
+            height: 120px;
+            width: 120px;
+        }
+    }
+}
