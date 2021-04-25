@@ -29,6 +29,10 @@ export class UserService {
         );
     }
 
+    create(email: string, firstName: string, lastName: string, password: string) {
+        return this.http.post('users/register', { email, firstName, lastName, password } )
+    }
+
     setToken(token: string) {
         this.tokenService.setToken(token);
         this.decodeAndNotify();
@@ -56,5 +60,9 @@ export class UserService {
 
     getUserName() {
         return this.userName;
+    }
+
+    checkIfEmailExists(email: string){
+        return this.http.get('users/check-email-exists/' + email);
     }
 }

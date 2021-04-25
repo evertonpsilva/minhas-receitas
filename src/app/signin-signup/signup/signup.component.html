@@ -1,34 +1,39 @@
 <div class="sign-up__container">
     <div>
         <h2 class="sign-up__container-title">Register</h2>
-        <form class="form" [formGroup]="signUpForm">
+        <form class="form" [formGroup]="signUpForm" (submit)="signUp()">
             <mat-form-field [color]="'primary'" appearance="outline">
                 <mat-label>e-mail</mat-label>
                 <input formControlName="email" type="email" matInput placeholder="email@example.com" color="primary">
                 <mat-icon matSuffix color="primary">mail_outline</mat-icon>
+                <mat-error *ngIf="getFormControl('email').invalid"> {{getErrorEmail()}}</mat-error>
             </mat-form-field>
             <div class="names">
                 <mat-form-field [color]="'primary'" appearance="outline">
                     <mat-label>first name</mat-label>
                     <input formControlName="firstName" matInput placeholder="John" color="primary">
+                    <mat-error *ngIf="getFormControl('firstName').invalid"> {{getErrorNames('firstName')}}</mat-error>
                 </mat-form-field>
                 <mat-form-field [color]="'primary'" appearance="outline">
                     <mat-label>last name</mat-label>
                     <input formControlName="lastName" matInput placeholder="Doe" color="primary">
+                    <mat-error *ngIf="getFormControl('lastName').invalid"> {{getErrorNames('lastName')}}</mat-error>
                 </mat-form-field>
             </div>
             <mat-form-field appearance="outline">
                 <mat-label>password</mat-label>
                 <input formControlName="password" type="{{visiblePassword ? 'text' : 'password'}}" matInput placeholder="***********" color="primary">
                 <mat-icon matSuffix color="primary" (click)="toggleVisibilityPassword()">{{visiblePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="getFormControl('password').invalid"> {{getErrorPassword()}}</mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>confirm password</mat-label>
                 <input formControlName="confirmPassword" type="{{visiblePassword ? 'text' : 'password'}}" matInput placeholder="***********" color="primary">
                 <mat-icon matSuffix color="primary" (click)="toggleVisibilityPassword()">{{visiblePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="getFormControl('confirmPassword').invalid"> {{getConfirmPasswordError()}}</mat-error>
             </mat-form-field>
             <div class="form-actions">
-                <button mat-flat-button color="primary" (click)="signUp()" [disabled]="signUpForm.invalid">Create account!</button>
+                <button type="submit" mat-flat-button color="primary" [disabled]="signUpForm.invalid || signUpForm.pending">Create account!</button>
             </div>
         </form>
     </div>

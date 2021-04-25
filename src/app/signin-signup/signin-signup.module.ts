@@ -11,6 +11,8 @@ import { SignInComponent } from "./signin/signin.component";
 import { SignUpComponent } from "./signup/signup.component";
 import { SignInSignUpComponent } from "./signin-signup.component";
 import { CommonModule } from "@angular/common";
+import { UserCreatedComponent } from './signup/user-created/user-created.component';
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
     imports: [
@@ -20,12 +22,17 @@ import { CommonModule } from "@angular/common";
         MatInputModule,
         MatButtonModule,
         MatIconModule,
-        CommonModule
+        CommonModule,
+        MatDialogModule,
     ],
     declarations: [
         SignInSignUpComponent,
         SignInComponent,
         SignUpComponent,
+        UserCreatedComponent,
+    ],
+    entryComponents: [
+        UserCreatedComponent
     ]
 })
 export class SignInSignUpModule{ }
