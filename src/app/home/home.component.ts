@@ -9,13 +9,9 @@ import { UserService } from '../core/user/user.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  logout(){
-    this.userService.logout();
   }
 
 }

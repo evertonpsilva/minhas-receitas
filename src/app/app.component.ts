@@ -59,4 +59,8 @@ export class AppComponent implements OnInit, OnDestroy{
     return outlet.isActivated ? outlet.activatedRoute : '';
   }
 
+  get showToolbar(){ 
+    return !this.router.url.includes('login') && !this.router.url.includes('404');
+  }
+
 }

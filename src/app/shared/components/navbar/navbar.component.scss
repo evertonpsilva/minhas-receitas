@@ -1,0 +1,15 @@
+:host ::ng-deep{
+
+    .mat-toolbar{
+        display: flex;
+        .spacer{
+            flex: 1;
+        }
+        > div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px
+        }
+    }
+
+}

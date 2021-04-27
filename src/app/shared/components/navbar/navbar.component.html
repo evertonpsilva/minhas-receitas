@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <span (click)="goToPage('')">Recipes Manager</span>
+  <span class="spacer"></span>
+  <div>
+    <button mat-button (click)="goToPage('recipes')">Recipes</button>
+    <button mat-button (click)="goToPage('ingredients')">Ingredients</button>
+    <button mat-button (click)="goToPage('tags')">Tags</button>
+  </div>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="User Options">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>edit</mat-icon>
+      <span>Edit infos</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

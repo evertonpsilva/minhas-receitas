@@ -16,7 +16,7 @@
             </mat-form-field>
             <div class="form-actions">
                 <a>Forgot Password? </a>
-                <button mat-flat-button color="primary" (click)="login()">Log in!</button>
+                <button mat-flat-button color="primary" (click)="login()" [disabled]="signInForm.invalid">Log in!</button>
             </div>
         </form>
     </div>

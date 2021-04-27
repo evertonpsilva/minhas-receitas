@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AbstractControl, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
+import { Router } from "@angular/router";
 import { debounceTime, first, map, switchMap, tap } from "rxjs/operators";
 import { UserService } from "src/app/core/user/user.service";
 import { MustMatch } from "src/app/shared/validators/match-controls.validator";
@@ -15,7 +16,12 @@ export class SignUpComponent implements OnInit{
     signUpForm: FormGroup;
     visiblePassword: boolean = false;
 
-    constructor(private fb: FormBuilder, private userService: UserService, private dialog: MatDialog){
+    constructor(
+        private fb: FormBuilder, 
+        private userService: UserService, 
+        private dialog: MatDialog,
+        private router: Router
+    ){
 
     }
 
@@ -36,7 +42,9 @@ export class SignUpComponent implements OnInit{
     signUp(){
         const { email, firstName, lastName, password } = this.signUpForm.value;
         this.userService.create(email, firstName, lastName, password).subscribe(() => {
-            this.dialog.open(UserCreatedComponent);
+            this.dialog.open(UserCreatedComponent).afterClosed().subscribe(() => {
+                this.router.navigate(['login']);
+            });
         });
     }
 

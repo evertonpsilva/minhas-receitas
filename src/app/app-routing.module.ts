@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/auth/auth.guard';
 import { HomeComponent } from './home/home.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { PageNotFoundComponent } from './shared/components/404/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -17,7 +19,20 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'recipes',
+    component: RecipesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: '404',
+    component: PageNotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '404',
+  },
 ];
 
 @NgModule({
