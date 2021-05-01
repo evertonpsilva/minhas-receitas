@@ -12,6 +12,8 @@ import { HttpMessageComponent } from './shared/components/http-message/http-mess
 import { HttpMessageModule } from './shared/components/http-message/http-message.module';
 import { NavBarModule } from './shared/components/navbar/navbar.module';
 import { PageNotFoundModule } from './shared/components/404/page-not-found.module';
+import { IngredientsModule } from './ingredients/ingredients.module';
+import { ConfirmDeleteModule } from './shared/components/confirm-delete/confirm-delete.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { PageNotFoundModule } from './shared/components/404/page-not-found.modul
     SignInSignUpModule,
     BrowserAnimationsModule,
     HomeModule,
+    IngredientsModule,
     HttpMessageModule,
+    ConfirmDeleteModule
   ],
   providers: [],
   bootstrap: [AppComponent],

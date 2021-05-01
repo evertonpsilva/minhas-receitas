@@ -1,0 +1,23 @@
+<div class="ingredients-container default-grid-list">
+    <mat-card class="ingredient-card add-card" (click)="addIngredient()">
+      <mat-card-content>
+        <button mat-fab color="accent">
+          <mat-icon>add</mat-icon>
+        </button>
+        <h3>Add ingredient</h3>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="ingredient-card" *ngFor="let ingredient of ingredients">
+      <div class="remove-button">
+        <button mat-mini-fab color="accent" aria-label="Remove ingredient" (click)="confirmDelete(ingredient._id)">
+          <mat-icon>remove</mat-icon>
+        </button>
+      </div>
+      <mat-card-header>
+        <mat-card-title>{{ ingredient.name }}</mat-card-title>
+        <mat-card-subtitle>{{ ingredient.meansure }} {{ingredient.meansureType}} - <strong>R${{ingredient.averageCost}}</strong></mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+
+</div>

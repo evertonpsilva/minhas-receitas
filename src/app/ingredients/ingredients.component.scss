@@ -1,0 +1,15 @@
+:host ::ng-deep{
+    .add-card{
+        background: #262261;
+        color: white;
+        text-align: center;
+    }
+    .ingredient-card{
+        .remove-button{
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: translate(50%, -50%);
+        }
+    }
+}
