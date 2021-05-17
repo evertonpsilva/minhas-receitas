@@ -1,0 +1,29 @@
+<form [formGroup]="filterForm" (submit)="filterValues()">
+    <div class="filter-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Order by</mat-label>
+        <mat-select formControlName="orderBy">
+          <mat-option value="{{item.id}}" *ngFor="let item of orderByOptions">{{item.description}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="filter-row">
+      <label>Itens per page</label>
+      <mat-radio-group aria-label="Select an option" formControlName="itensPerPage">
+        <mat-radio-button value="{{10}}">10</mat-radio-button>
+        <mat-radio-button value="{{25}}">25</mat-radio-button>
+        <mat-radio-button value="{{50}}">50</mat-radio-button>
+        <mat-radio-button value="{{100}}">100</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="filter-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Type</mat-label>
+        <mat-select formControlName="meansureType">
+          <mat-option value="{{type}}" *ngFor="let type of meansureType">{{type}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <app-range-input (values)="changeRange($event)" [initialValues]="{min: min.value, max: max.value}"></app-range-input>
+    <button type="submit" mat-flat-button color="primary">Filter</button>
+  </form>

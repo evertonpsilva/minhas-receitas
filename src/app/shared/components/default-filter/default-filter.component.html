@@ -1,0 +1,11 @@
+<mat-drawer-container class="container">
+  <mat-drawer #drawer position="end">
+    <div class="filter-container" *ngIf="filter != null">
+      <h2>Filters</h2>
+      <app-filter-form [filter]="filter" (filterToSearch)="filterValues($event)"></app-filter-form>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <ng-content></ng-content>
+  </mat-drawer-content>
+</mat-drawer-container>

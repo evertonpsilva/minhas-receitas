@@ -1,0 +1,15 @@
+<div class="container">
+    <label>Price</label>
+    <div class="range-filter">
+        <div id="min" class="min">
+            <mat-slider [value]="min" [min]="minInitial" [max]="maxInitial" step="0.01" aria-label="unit(s)" (valueChange)="emitValues()" (input)="minValueChange($event)"></mat-slider>
+        </div>
+        <div id="max" class="max">
+            <mat-slider [value]="max" [min]="minInitial" [max]="maxInitial" step="0.01" aria-label="unit(s)" (valueChange)="emitValues()" (input)="maxValueChange($event)"></mat-slider>
+        </div>
+    </div>
+    <div class="labels">
+        <label>R${{min | currency: 'BRL':'symbol':undefined:'pt-BR'}}</label>
+        <label>R${{max | currency: 'BRL':'symbol':undefined:'pt-BR'}}</label>
+    </div>
+</div>

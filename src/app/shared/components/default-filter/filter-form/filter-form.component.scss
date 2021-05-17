@@ -1,0 +1,24 @@
+:host ::ng-deep{
+    
+    form{
+        display: flex;
+        flex-direction: column;
+        .filter-row{
+            display: flex;
+            flex-direction: column;
+            .mat-radio-group{
+                display: flex;
+                gap: 15px;
+                padding-bottom: 1.34375em;
+            }
+            > label{
+                width: 100%;
+                clear: both;
+                font-weight: 500;
+            }
+        }
+        button{
+            margin-top: 15px;
+        }
+    }
+}

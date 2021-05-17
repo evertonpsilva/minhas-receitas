@@ -1,4 +1,6 @@
-<app-navbar *ngIf="showToolbar"></app-navbar>
-<div [@fadeAnimation]="prepareRoute(outlet)" >
-    <router-outlet #outlet="outlet"></router-outlet>
-</div>
+<app-default-filter>
+    <app-navbar *ngIf="showToolbar"></app-navbar>
+    <div [@fadeAnimation]="prepareRoute(outlet)" class="router-container">
+        <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+</app-default-filter>

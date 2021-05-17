@@ -4,25 +4,26 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
-
+import { RouterModule } from "@angular/router";
+import { CommonModule } from "@angular/common";
+import { MatDialogModule } from "@angular/material/dialog";
 
 import { SignInSignUpRoutingModule } from "./signin-signup-routing.module";
 import { SignInComponent } from "./signin/signin.component";
 import { SignUpComponent } from "./signup/signup.component";
 import { SignInSignUpComponent } from "./signin-signup.component";
-import { CommonModule } from "@angular/common";
 import { UserCreatedComponent } from './signup/user-created/user-created.component';
-import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
     imports: [
         SignInSignUpRoutingModule,
+        CommonModule,
+        RouterModule,
         ReactiveFormsModule,
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
         MatIconModule,
-        CommonModule,
         MatDialogModule,
     ],
     declarations: [

@@ -1,4 +1,10 @@
-<div class="ingredients-container default-grid-list">
+<div class="main-container">
+  <div class="filter-container">
+    <app-search-input (value)="filterByName($event)" class="search-input"></app-search-input>
+    <app-filter-button [filter]="filter" class="mat-form-field-wrapper"></app-filter-button>
+  </div>
+  
+  <div class="ingredients-container default-grid-list">
     <mat-card class="ingredient-card add-card" (click)="addIngredient()">
       <mat-card-content>
         <button mat-fab color="accent">
@@ -7,17 +13,17 @@
         <h3>Add ingredient</h3>
       </mat-card-content>
     </mat-card>
-
+  
     <mat-card class="ingredient-card" *ngFor="let ingredient of ingredients">
       <div class="remove-button">
-        <button mat-mini-fab color="accent" aria-label="Remove ingredient" (click)="confirmDelete(ingredient._id)">
-          <mat-icon>remove</mat-icon>
+        <button mat-icon-button color="accent" aria-label="Remove ingredient" (click)="confirmDelete(ingredient._id)">
+          <mat-icon>delete</mat-icon>
         </button>
       </div>
       <mat-card-header>
         <mat-card-title>{{ ingredient.name }}</mat-card-title>
-        <mat-card-subtitle>{{ ingredient.meansure }} {{ingredient.meansureType}} - <strong>R${{ingredient.averageCost}}</strong></mat-card-subtitle>
+        <mat-card-subtitle>{{ ingredient.meansure }} {{ingredient.meansureType}} - <strong>{{ingredient.averageCost | currency: 'BRL':'symbol':undefined:'pt-BR'}}</strong></mat-card-subtitle>
       </mat-card-header>
     </mat-card>
-
+  </div>
 </div>

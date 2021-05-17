@@ -1,4 +1,18 @@
 :host ::ng-deep{
+    .filter-container{
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        .search-input{
+            flex: 1;
+        }
+    }
+    .search-filter{
+        display: block;
+        .mat-form-field{
+            display: block;
+        }
+    }
     .add-card{
         background: #262261;
         color: white;
@@ -9,7 +23,6 @@
             position: absolute;
             right: 0;
             top: 0;
-            transform: translate(50%, -50%);
         }
     }
 }
