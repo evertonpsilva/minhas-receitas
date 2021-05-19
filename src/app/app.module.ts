@@ -18,6 +18,7 @@ import { DefaultFilterModule } from './shared/components/default-filter/default-
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { RecipesModule } from './recipes/recipes.module';
 
 registerLocaleData(localePt, 'pt-BR');
 @NgModule({
@@ -34,6 +35,7 @@ registerLocaleData(localePt, 'pt-BR');
     BrowserAnimationsModule,
     HomeModule,
     IngredientsModule,
+    RecipesModule,
     HttpMessageModule,
     ConfirmDeleteModule,
     DefaultFilterModule,

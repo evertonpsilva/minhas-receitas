@@ -1,22 +1,38 @@
-<mat-toolbar color="primary">
-  <span (click)="goToPage('')">Recipes Manager</span>
-  <span class="spacer"></span>
-  <div>
-    <button mat-button (click)="goToPage('recipes')">Recipes</button>
-    <button mat-button (click)="goToPage('ingredients')">Ingredients</button>
-    <button mat-button (click)="goToPage('tags')">Tags</button>
+<div class="menu-container" color="primary">
+
+  <div class="menu-header">
+    <h3>Hi, Everton!</h3>
   </div>
-  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="User Options">
-    <mat-icon>account_circle</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>edit</mat-icon>
-      <span>Edit infos</span>
-    </button>
-    <button mat-menu-item (click)="logout()">
+
+  <div class="menu-actions">
+    <a mat-button [routerLink]="['home']" routerLinkActive="active">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </a>
+    <a mat-button [routerLink]="['recipes']" routerLinkActive="active">
+      <mat-icon>menu_book</mat-icon>
+      <span>Recipes</span>
+    </a>
+    <a mat-button [routerLink]="['ingredients']" routerLinkActive="active">
+      <mat-icon>bakery_dining</mat-icon>
+      <span>Ingredients</span>
+    </a>
+    <a mat-button [routerLink]="['todo']" routerLinkActive="active">
+      <mat-icon>event_note</mat-icon>
+      <span>To do</span>
+    </a>
+    <a mat-button (click)="logout()">
       <mat-icon>logout</mat-icon>
       <span>Logout</span>
-    </button>
-  </mat-menu>
-</mat-toolbar>
+    </a>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="menu-footer">
+    <h5>Recipes Manager</h5>
+    <h6>2021, Everton Silva</h6>
+  </div>
+  
+
+</div>

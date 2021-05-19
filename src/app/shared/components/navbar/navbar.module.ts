@@ -8,6 +8,7 @@ import { ConfirmLogoutComponent } from "./confirm-logout/confirm-logout.componen
 import { MatDialogModule } from "@angular/material/dialog";
 
 import { NavbarComponent } from "./navbar.component";
+import { RouterModule } from "@angular/router";
 @NgModule({
     declarations: [ NavbarComponent, ConfirmLogoutComponent ],
     exports: [ NavbarComponent ],
@@ -18,7 +19,8 @@ import { NavbarComponent } from "./navbar.component";
         MatIconModule,
         MatMenuModule,
         MatButtonModule,
-        MatDialogModule
+        MatDialogModule,
+        RouterModule,
     ]
 })
 export class NavBarModule{ }
