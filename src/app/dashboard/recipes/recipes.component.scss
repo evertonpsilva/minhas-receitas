@@ -1,0 +1,71 @@
+:host ::ng-deep{
+    .recipe-card{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        .mat-card-header{
+            .mat-card-header-text{
+                margin: 0;
+                .mat-card-title{
+                    font-weight: 700;
+                    font-size: 16px;
+                }
+            }
+        }
+        .mat-card-content{
+            p{
+                color: #808080;
+            }
+            div.gain{
+                margin-top: 12px;
+                .gain-spec{
+                    display: flex;
+                    justify-content: space-between;
+                    div.gain-type{
+                        padding: 5px 10px;
+                        border-radius: 20px;
+                    }
+                    .good{
+                        background-color: #eaf8f5;
+                        h5{
+                            color: #85d5cb;
+                        }
+                    }
+                    .warn{
+                        background-color: #ffefeb;
+                        h5{
+                            color: #ff8e6f;
+                        }
+                    }
+                    .normal{
+                        background-color: #eaebf1;
+                        h5{
+                            color: #262261;
+                        }
+                    }
+                    h5{
+                        margin: 0;
+                        font-size: 14px;
+                        line-height: 14px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+        .mat-card-actions{
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+    div.cost-specs{
+        padding-top: 12px;
+        display: flex;
+        justify-content: space-between;
+        > div {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+    }
+}

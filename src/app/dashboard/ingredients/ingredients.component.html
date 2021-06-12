@@ -1,19 +1,17 @@
 <div class="main-container">
+  <div class="header-page">
+    <h2>Ingredients</h2>
+    <button mat-raised-button color="primary" (click)="addIngredient()">
+      <mat-icon>add</mat-icon>
+      <span> Add ingredient</span>
+    </button>
+  </div>
   <div class="filter-container">
     <app-search-input (value)="filterByName($event)" class="search-input"></app-search-input>
     <app-filter-button [filter]="filter" class="mat-form-field-wrapper"></app-filter-button>
   </div>
   
-  <div class="ingredients-container default-grid-list">
-    <mat-card class="ingredient-card add-card" (click)="addIngredient()">
-      <mat-card-content>
-        <button mat-fab color="accent">
-          <mat-icon>add</mat-icon>
-        </button>
-        <h3>Add ingredient</h3>
-      </mat-card-content>
-    </mat-card>
-  
+  <div class="ingredients-container default-grid-list">  
     <mat-card class="ingredient-card" *ngFor="let ingredient of ingredients">
       <div class="remove-button">
         <button mat-icon-button color="accent" aria-label="Remove ingredient" (click)="confirmDelete(ingredient._id)">

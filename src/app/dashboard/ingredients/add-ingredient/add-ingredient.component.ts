@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
-import { MeansureTypeEnum } from "../../shared/enums/meansure-type.enum";
+import { MeansureTypeEnum } from "../../../shared/enums/meansure-type.enum";
 import { IngredientsService } from "../ingredients.service";
 
 @Component({

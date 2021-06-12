@@ -3,12 +3,12 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
-import { DefaultFilter } from "../shared/interfaces/default-filter.interface";
-import { Pagination } from "../shared/interfaces/pagination.interface";
-import { BuilderHttpParams } from "../shared/utils/builder-http-params";
-import { resultMap } from "../shared/utils/result-map";
+import { DefaultFilter } from "../../shared/interfaces/default-filter.interface";
+import { Pagination } from "../../shared/interfaces/pagination.interface";
+import { BuilderHttpParams } from "../../shared/utils/builder-http-params";
+import { resultMap } from "../../shared/utils/result-map";
 import { Ingredient } from "./interfaces/ingredients.interface";
-import { HttpBaseService } from '../shared/interfaces/http-base-service.interface';
+import { HttpBaseService } from '../../shared/interfaces/http-base-service.interface';
 
 @Injectable()
 export class IngredientsService implements HttpBaseService{
@@ -18,7 +18,6 @@ export class IngredientsService implements HttpBaseService{
     get(filter?: DefaultFilter): Observable<Pagination<Ingredient>>{
 
         const params = new BuilderHttpParams(filter).createParams();
-
         return this.http.get('ingredients', { params} )
         .pipe(
           resultMap(),

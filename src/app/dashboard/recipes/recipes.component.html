@@ -1,0 +1,45 @@
+<div class="main-container">
+  <div class="header-page">
+    <h2>Recipes</h2>
+    <button mat-raised-button color="primary" (click)="addRecipe()">
+      <mat-icon>add</mat-icon>
+      <span> Add recipe</span>
+    </button>
+  </div>
+  <div class="filter-container">
+    <app-search-input (value)="filterByName($event)" class="search-input"></app-search-input>
+    <!-- <app-filter-button [filter]="filter" class="mat-form-field-wrapper"></app-filter-button> -->
+  </div>
+  
+  <div class="recipes-container default-grid-list" *ngIf="recipes$ | async as recipes">  
+    <mat-card class="recipe-card" *ngFor="let recipe of recipes" (click)="goToRecipe(recipe)">
+      <mat-card-header>
+        <mat-card-title>{{ recipe.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{recipe.description}}</p>
+        <div class="gain">
+          <div class="gain-spec">
+            <div class="gain-type" [ngClass]="classByValue(recipe)">
+              <h5>{{ labelByValue(recipe) }}</h5>
+            </div>
+            <div class="gain-percent">
+              <h5>{{ calculateGainPercent(recipe) | percent}}</h5>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="cost-specs">
+          <div matTooltip="Cost price" matTooltipPosition="below">
+            <mat-icon>shopping_cart</mat-icon>
+            <span>{{recipe.averageCost | currency: 'BRL':'symbol':undefined:'pt-BR'}}</span>
+          </div>
+          <div matTooltip="Seller price" matTooltipPosition="below" [ngClass]="classByValue(recipe)">
+            <mat-icon>sell</mat-icon>
+            <span>{{recipe.sellerPrice | currency: 'BRL':'symbol':undefined:'pt-BR'}}</span>
+          </div>
+        </div> -->
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -9,7 +9,7 @@ export class IsSignedInguard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
       if (this.userService.isLogged()) {
-        this.router.navigate(['home']); // or home
+        this.router.navigate(['dashboard']); // or home
         return false;
       }
       return true;

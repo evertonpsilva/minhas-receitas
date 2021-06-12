@@ -1,0 +1,6 @@
+<app-default-filter>
+    <app-navbar></app-navbar>
+    <div [@fadeAnimation]="prepareRoute(outlet)" class="router-container" >
+        <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+</app-default-filter>

@@ -33,7 +33,7 @@ export class AppComponent implements OnInit, OnDestroy{
 
     this.userSubscription = this.userService.getUser().pipe(skip(1)).subscribe((user) => {
       if(user){
-        this.router.navigate(['/home']);
+        this.router.navigate(['/dashboard']);
       }else{
         this.router.navigate(['/login']);
       }
@@ -57,10 +57,6 @@ export class AppComponent implements OnInit, OnDestroy{
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet.isActivated ? outlet.activatedRoute : '';
-  }
-
-  get showToolbar(){ 
-    return !this.router.url.includes('login') && !this.router.url.includes('404');
   }
 
 }
